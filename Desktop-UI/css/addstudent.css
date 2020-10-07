@@ -1,0 +1,143 @@
+ body {
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(to left, #00AAFF, #00FF6C);*/
+    /* background-color: #00FF6C; */
+    background: url("background.png");
+    font-family: sans-serif;
+} 
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    border-bottom: 1px solid black;
+}
+
+
+
+/* header img {
+    float: left;
+     width: 8%;
+    height: 80px; 
+} */
+
+.Institution_logo {
+    border: 1px;
+    padding: 10px 10px 10px 10px;
+    margin-right: auto;
+    justify-content: flex-start;
+    cursor: pointer;
+    width: 20px;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 7vw;
+}
+
+header h1 {
+    /* border: 1px solid black; */
+    text-align: center; 
+    /*margin-top: 0%;
+    margin-left: 12%;
+    margin-right: 5%;*/
+    margin: auto;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.User {
+    border: 1px;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin: 10px 10px 10px 10px;
+    padding: 5px 25px 5px 25px;
+    cursor: pointer;
+}
+
+#signout-button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: block;
+    padding: 2px;
+    margin: 1%;
+    height: auto;
+}
+
+nav a {
+    display: inline-block;
+    padding: 3px;
+    margin-right: 10px;
+    text-decoration: none;
+    /* background-color:  rgba(0, 0, 0, 0.3); */
+    border-radius: 5%;
+    width: auto;
+    text-align: center;
+    height: auto;
+    font-size: 2vw;
+}
+
+nav a:hover {
+    /* border-radius: 10%; */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+main{
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+/* 
+.container {
+    margin: 1%;
+    margin-bottom: 3%;
+    height: 530px;
+    border: solid black;
+} */
+
+
+/* footer {
+    border: solid black;
+    position: sticky;
+    margin: 1%;
+    margin-top: 0%;
+    padding: 0%;
+    height: 30px;
+} */
+
+.footer {
+    height: 6vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    background-color: #80e063;
+    color: #25384f;
+    font-weight: bolder;
+    font-size: 3vh;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0%;
+}
+
+.footer-links>a,
+.footer>div>a {
+    margin: 10px;
+    color: inherit;
+    justify-content: flex-end;
+}
+
+.footer-links>a>i {
+    transform: scale(1.5);
+}
+

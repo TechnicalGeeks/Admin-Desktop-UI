@@ -1,0 +1,40 @@
+body{
+    margin : 0;
+    padding : 0;
+    /* background: linear-gradient(to left, #00AAFF, #00FF6C);
+    background-color: #00FF6C; */
+    font-family: sans-serif;
+}
+.header{
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+.Institution_logo{
+    padding: 10px 10px 10px 10px;
+    margin-right: auto;
+    justify-content: flex-start;
+    cursor: pointer;
+    width: 20px;
+}
+
+.logo{
+    width: 6vw;
+}
+
+.User{
+    justify-content: flex-end;
+    margin-left: auto;
+    margin: 10px 10px 10px 10px;
+    padding: 5px 25px 5px 25px;
+    cursor: pointer;
+}
+#signout-button{
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    cursor: pointer;
+}

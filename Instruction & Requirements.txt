@@ -1,0 +1,8 @@
+1.Install node and npm
+2. Run command:
+	npm install electron
+	npm install express
+	npm install cors
+3. run addstudent.js in Desktop-UI/javascript 
+   with command "node addstudent.js"
+4. Run server.py parallely in different cmd

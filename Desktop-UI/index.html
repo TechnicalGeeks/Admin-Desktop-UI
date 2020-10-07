@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="">
+    <title>Proxy | Login</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="form" class="form">
+            <h2>Login Here</h2>
+            <div class="form-control" id="formControl">
+                <label for="user" style="display: inline;">Login as : </label>
+                <select name="" id="User">
+                    <option value="admin">Administrator</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+            
+            <div class="form-control" id="formControl">
+                <label for="username">Username : </label>
+                <input type="email" id="username" placeholder="Enter Username">
+            </div>
+            <div class="form-control" id="formControl">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+            </div>
+            <button id="login-form-submit" type="submit">Login</button>
+        </form>
+    </div>
+    <!-- <div class="container">
+    <div class="LoginBox" >
+        <img  src="images/Login_logo.png" class="avatar">
+        <h1> LOGIN HERE </h1>
+        <form id="login-form">
+            <p>Login as :</p>
+            <select name="" id="User">
+                <option value="admin">Administrator</option>
+                <option value="faculty">Faculty</option>
+            </select>
+            <br><br>
+            <p>Username</p>
+            <input id="username" type="text" name="" placeholder="Enter Username">
+            <p>Password</p>
+            <input id="password" type="password" name="" placeholder="Enter Password">
+            <input id="login-form-submit" type="submit" value="Login">
+            <a href="#" id="forgot-password">* Forgot Password ?</a><br>
+        </form>
+     </div>
+    </div>
+     <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+     The core Firebase JS SDK is always required and must be listed first -->
+     <script src="/__/firebase/7.19.1/firebase-app.js"></script>
+ 
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="/__/firebase/7.19.1/firebase-analytics.js"></script>
+     <script src="/__/firebase/7.19.1/firebase-auth.js"></script>
+     <script src="/__/firebase/7.19.1/firebase-firestore.js"></script>
+     
+     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+     <script src="/__/firebase/7.19.1/firebase-analytics.js"></script>
+ 
+     <!-- Initialize Firebase -->
+     <script src="/__/firebase/init.js"></script>
+     <script src="javascript/login.js"></script>
+</body>
+</html>
