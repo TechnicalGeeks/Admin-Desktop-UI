@@ -16,14 +16,20 @@ function execute(command,callback){
 };
 
 app.use(bodyParser.urlencoded({extended: true}));
+var output1;
 app.post('/example',function(req,res){
-    console.log("test",req.body);
-    // name=req.body.name
-    // execute(`python FaceDetection2.py  rr`,(output)=>{
-            // console.log(output);
-            // outputText.innerText(output)
-            // res.send(output);
-    // });
+    console.log("test",req.body,req.params,req.query);
+    name=req.body.name
+    execute(`python FaceDetection2.py  ${name}`,(output)=>{
+            console.log(output);
+            res.send(output);
+            res.redirect(__dirname+"try1.html")
+            output1=output;
+    });
+});
+
+app.get('/example1',function(req,res){
+    res.render(__dirname+"/try2.html",{output:output1});
 });
 
 const port=8081;

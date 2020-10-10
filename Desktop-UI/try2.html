@@ -39,11 +39,11 @@
     <main>
         
         <div class="container">
-            <form id="form" class="form" action="http://localhost:8081/example" method="POST">
+            <form id="form" class="form">
                 <h2>Add Students</h2>
                 <div class="form-control">
-                    <label for="name">Name : </label>
-                    <input type="text" id="name" name="name" placeholder="Enter Name">
+                    <label for="Tname">Name : </label>
+                    <input type="text" id="Tname" placeholder="Enter Name">
                 </div>
                 <br><br>
                 <button type="submit" onclick="test()">Add</button>
@@ -51,7 +51,7 @@
 
             
         </div>
-		 <p id="output"> <%= output %> </p>
+		 <p id="output"></p>
 
     </main>
     <footer class="footer">
@@ -85,28 +85,33 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // function test() {
-        //     var name = document.getElementById('Tname').value;
-        //     console.log('##test', name);
-        //     data={'name':name};
-        //     console.log(data);
-        //     var sendString= JSON.stringify(data);
-        //     alert(sendString);
+        var xhttp = new XMLHttpRequest();
+        function test() {
+            var name = document.getElementById('Tname').value;
+            console.log('##test', name);
+            data={'name':name};
+            console.log(data);
+            var sendString= JSON.stringify(data);
+            alert(sendString);
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "http://localhost:8081/example1", true);
-            xhttp.send()
+            // xhttp.open("POST", "http://localhost:8081/example", true);
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log("<%= output %>")
                     console.log('test data', this.responseText);
                     outputText=document.getElementById('output');
                     outputText.innerText+=this.responseText;
                 }
-            // };
-            // xhttp.send(data);
-            // xhttp.open("POST", "http://localhost:8081/example", true);
-            // xhttp.send(data);
+            };
+            xhttp.send(data);
+            xhttp.open("POST", "http://localhost:8081/example", true);
+            xhttp.send(sendString);
+            
         }
+
+        var name="<%= output%>";
+        console.log(name);
+
+
 
     </script>
 </body>

@@ -12,7 +12,7 @@ def call_server():
 def call_nodejs():
     print("Node JS Running Successfully ")
     cd = "cd Desktop-UI/javascript/" 
-    os.system(cd)
+    # os.system(cd)
     os.system("node addstudent.js")
    
 
