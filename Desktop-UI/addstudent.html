@@ -39,11 +39,26 @@
     <main>
         
         <div class="container">
-            <form id="form" class="form" action="http://localhost:8081/example" method="POST">
+            <form id="form" class="form" action="http://localhost:8081/addStudent" method="POST">
                 <h2>Add Students</h2>
                 <div class="form-control">
                     <label for="name">Name : </label>
                     <input type="text" id="name" name="name" placeholder="Enter Name">
+                </div>
+                <br><br>
+                <div class="form-control">
+                    <label for="clas">Class : </label>
+                    <input type="text" id="clas" name="clas" placeholder="Enter Class">
+                </div>
+                <br><br>
+                <div class="form-control">
+                    <label for="div">Division : </label>
+                    <input type="text" id="div" name="div" placeholder="Enter Division">
+                </div>
+                <br><br>
+                <div class="form-control">
+                    <label for="roll">Roll : </label>
+                    <input type="text" id="roll" name="roll" placeholder="Enter Name">
                 </div>
                 <br><br>
                 <button type="submit" onclick="test()">Add</button>

@@ -13,7 +13,7 @@ def call_nodejs():
     print("Node JS Running Successfully ")
     cd = "cd Desktop-UI/javascript/" 
     # os.system(cd)
-    os.system("node addstudent.js")
+    os.system("node addstudent1.js")
    
 
 	# command2 = "python hello.py"  #The command needs to be a string

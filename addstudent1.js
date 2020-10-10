@@ -17,16 +17,42 @@ function execute(command,callback){
 
 app.use(bodyParser.urlencoded({extended: true}));
 var output1;
-app.post('/example',function(req,res){
+app.post('/addStudent',function(req,res){
     console.log("test",req.body,req.params,req.query);
     name=req.body.name;
-    execute(`python FaceDetection2.py  ${name}`,(output)=>{
+    clas=req.body.clas;
+    div=req.body.div;
+    roll=req.body.roll;
+    execute(`python FaceDetection2.py  ${name} ${clas} ${div} ${roll}`,(output)=>{
             console.log(output);
             res.send(output);
-            res.redirect(__dirname+"try1.html")
+            // res.redirect(__dirname+"try1.html")
             output1=output;
     });
 });
+
+app.post('/signUp',function(req,res){
+    console.log("test",req.body,req.params,req.query);
+    name=req.body.Tname;
+    fid=req.body.fid;
+    email=req.body.email;
+    if (req.body.npassword==req.body.cpassword){
+        execute(`python signUp.py  ${email} ${fid} ${name} ${req.body.npassword}`,(output)=>{
+                    console.log(output);
+                    res.send(output);
+                    output1=output;
+            });
+    }
+    else{
+        res.send("Password Donnot Match")
+    }
+//     execute(`python signUp.py  ${name}`,(output)=>{
+//         console.log(output);
+//         res.send(output);
+//         output1=output;
+// });
+});
+
 
 app.get('/example1',function(req,res){
     res.render(__dirname+"/try2.html",{output:output1});

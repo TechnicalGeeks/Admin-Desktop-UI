@@ -1,4 +1,10 @@
 1.Install node and npm
+2. Run above command but replace (path) by path of Admin-Desktop_UI folder: 
+set GOOGLE_APPLICATION_CREDENTIALS=(path)/proxy-detection-1df22-firebase-adminsdk-y1uq2-a531450741.json
+
+echo GOOGLE_APPLICATION_CREDENTIALS (path)/proxy-detection-1df22-firebase-adminsdk-y1uq2-a531450741.json
+ 
+
 2. Run command:
 	npm install electron -g
 	npm install express
