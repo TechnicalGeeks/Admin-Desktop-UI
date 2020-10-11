@@ -1,4 +1,14 @@
-
+var config ={
+  "apiKey": "AIzaSyAC4EU24xjMQKXP-41I1TnRDIT4KTN7CV8",
+  "authDomain": "proxy-detection-1df22.firebaseapp.com",
+  "databaseURL": "https://proxy-detection-1df22.firebaseio.com",
+  "projectId": "proxy-detection-1df22",
+  "storageBucket": "proxy-detection-1df22.appspot.com",
+  "messagingSenderId": "17187188207",
+  "appId": "1:17187188207:web:63e8c1f5b50862b1c59a1a",
+  "vmeasurementId": "G-EPTQX1DS4L"
+}
+firebase.initializeApp(config);
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
@@ -15,7 +25,7 @@ loginButton.addEventListener("click", (e) => {
       firebase.auth().signInWithEmailAndPassword(email, password).then((success)=>
       {
         alert("You have successfully logged in.");
-        location.replace("Admin.html")
+        location.replace("Faculty.html")
       }).catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
