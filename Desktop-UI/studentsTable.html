@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Technical Geeks">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proxy | Faculty</title>
+	<!--Bootstrap File Link-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!--CSS File Link-->
+		<link rel="stylesheet" href="css/addstudent.css">
+		<link rel="stylesheet" href="css/studentsTable.css">
+		<link rel="stylesheet" href="css/lecture.css">
+
+    <!-- Awesome Fonts Link to StyleSheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <a href="Admin.html" class="Institution_logo">
+            <img src="images/logo.jpg" alt="PCCoE" class="logo">
+        </a>
+        <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
+        <details class="User">
+            <summary>User</summary>
+            <button id="signout-button">Signout</button>
+        </details>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Website1</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+    </nav>
+    <main>
+        
+        <div class="container">
+            <form a id='form' class='form'>
+                <div class="form-control">
+                    <label for="year">Year</label>
+                    <select id='year' name="year" class="select">
+                        <option value="SE" >SE</option>
+                        <option value="TE" >TE</option>
+                        <option value="BE" >BE</option>
+                    </select>
+                </div>
+                <br><br>
+                <div class="form-control">
+                    <label for="div">Division</label>
+                    <select id='div' name="div" class="select">
+                        <option value="A" >A</option>
+                        <option value="B" >B</option>
+                        <option value="C" >C</option>
+                    </select>
+                </div>
+                <br><br>
+                <button type="button" onclick="retrieve()">Submit</button>
+            </form>
+            <br><br>
+        </div>
+        <table id="student-table">
+            <thead>
+                <th>Roll No.</th>
+                <th id='subject1'>Sub1</th>
+                <th id='subject2'>Sub2</th>
+                <th id='subject3'>Sub3</th>
+                <th id='subject4'>Sub4</th>
+                <th id='subject5'>Sub5</th>
+            </thead>
+        </table>
+        <pre id="object"></pre>
+    </main>
+    <footer class="footer">
+        <div class="copyright">
+            <a href="LICENSE" target="_blank">
+                &copy; 2020 technicalgeeks
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://facebook.com/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:technicalgeeks20@gmail.com" target="_blank" style="text-decoration: none">
+                <i class="far fa-envelope"></i>
+            </a>
+        </div>
+	</footer>
+    
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	 -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+     
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script> -->
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+
+    <script src="javascript/studentsTable.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
