@@ -14,6 +14,83 @@
 
     <!-- Awesome Fonts Link to StyleSheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- kk -->
+    <script language="javascript" type="text/javascript">
+    function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "FE-A" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "FE-B" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        case "FE-C" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "SE-A" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        case "SE-B" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "SE-C" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        case "TE-A" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "TE-B" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        case "TE-C" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "BE-A" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        case "BE-B" :
+            document.getElementById("status").options[0]=new Option("A","A");
+            document.getElementById("status").options[1]=new Option("B","B");
+            document.getElementById("status").options[2]=new Option("C","C");
+            break;
+        case "BE-C" :
+            document.getElementById("status").options[0]=new Option("E","E");
+            document.getElementById("status").options[1]=new Option("F","F");
+            document.getElementById("status").options[2]=new Option("G","G");
+            document.getElementById("status").options[3]=new Option("H","H");
+            break;
+        }
+        return true;
+    }
+    </script>
+    <!-- kk -->
 </head>
 
 <body>
@@ -42,10 +119,37 @@
                     <label for="lname">Lecturer's Name</label>
                     <input type="text" id="lname" placeholder="Enter Name">
                 </div>
-                <div class="form-control">
+                <!-- kk -->
+			    <div class="category_div form-control" id="category_div">
+			    	<label for="year-division">Year-Division</label>
+			        <select id="source year-division" name="source year" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+			        	<option value="">Select Year-Division</option>
+			        	<option value="FE-A" >FE-A</option>
+                        <option value="FE-B" >FE-B</option>
+                        <option value="FE-C" >FE-C</option>
+                        <option value="SE-A" >SE-A</option>
+                        <option value="SE-B" >SE-B</option>
+                        <option value="SE-C" >SE-C</option>
+                        <option value="TE-A" >TE-A</option>
+                        <option value="TE-B" >TE-B</option>
+                        <option value="TE-C" >TE-C</option>
+                        <option value="BE-A" >BE-A</option>
+                        <option value="BE-B" >BE-B</option>
+                        <option value="BE-C" >BE-C</option>
+			        </select>
+			    </div>
+			    <div class="sub_category_div form-control" id="sub_category_div">
+			    	<label for="year-division">Subject</label>
+			        <script type="text/javascript" language="JavaScript">
+			        document.write('<select name="status" id="status"><option value="">Select Subject</option></select>')
+			        </script>
+			    </div>
+                <!-- kk -->
+                <!-- <div class="form-control">
                     <label for="subject">Subject</label>
                     <input type="text" id="subject" placeholder="Enter Subject Name">
-                </div><div class="form-control">
+                </div> -->
+                <div class="form-control">
                     <label for="date">Date</label>
                     <input type="date" id="date" placeholder="00/00/0000">
                 </div><div class="form-control">
