@@ -15,16 +15,16 @@ var config ={
   firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
               // User is signed in.
-              var displayName = user.displayName;
-              var email = user.email;
+              // var displayName = user.displayName;
+              // var email = user.email;
             //   var emailVerified = user.emailVerified;
             //   var photoURL = user.photoURL;
             //   var isAnonymous = user.isAnonymous;
-              var uid = user.uid;
+              // var uid = user.uid;
             //   var providerData = user.providerData;
               // ...
-              console.log(displayName);
-              Username.innerHTML=displayName;
+              console.log(localStorage.getItem('displayName'));
+              Username.innerHTML=localStorage.getItem('displayName');
             } else {
               // User is signed out.
               // ...
@@ -52,8 +52,8 @@ function signOut(){
         // An error happened.
         alert(error.code+error.message);
       });
-    console.log("Sign Out")
-    FirebaseAuth.getInstance().signOut()
-    location.replace("index.html")
+    // console.log("Sign Out")
+    // FirebaseAuth.getInstance().signOut()
+    // location.replace("index.html")
 };
 

@@ -64,23 +64,22 @@ const forgotPassword= document.getElementById("forgot-password");
       console.log(userType)
       firebase.auth().signInWithEmailAndPassword(email, password).then((success)=>
       {
-        if(userType=="faculty")
-        {
-          alert("You have successfully logged in.");
-          location.replace("Faculty.html")
-        }
-        else
-        {
-          firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) {
+          localStorage.setItem('displayName',user.displayName)
+          if(userType=="faculty"){
+            alert("You have successfully logged in.");
+            location.replace("Faculty.html")
+          }
+          else{
             if(user.uid=='Admin'){
               alert("You have successfully logged in.");
-              location.replace("Admin.html")
+              location.replace("Admin.html");
             }
             else{
-              alert("Incorrect Username or Password")
+              alert("Incorrect Username or Password");
             }
-          });
-        }
+          }
+        })
       }).catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;

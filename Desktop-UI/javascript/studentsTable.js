@@ -1,17 +1,17 @@
 
 
 
-var config ={
-    "apiKey": "AIzaSyAC4EU24xjMQKXP-41I1TnRDIT4KTN7CV8",
-    "authDomain": "proxy-detection-1df22.firebaseapp.com",
-    "databaseURL": "https://proxy-detection-1df22.firebaseio.com",
-    "projectId": "proxy-detection-1df22",
-    "storageBucket": "proxy-detection-1df22.appspot.com",
-    "messagingSenderId": "17187188207",
-    "appId": "1:17187188207:web:63e8c1f5b50862b1c59a1a",
-    "vmeasurementId": "G-EPTQX1DS4L"
-}
-firebase.initializeApp(config);
+// var config ={
+//     "apiKey": "AIzaSyAC4EU24xjMQKXP-41I1TnRDIT4KTN7CV8",
+//     "authDomain": "proxy-detection-1df22.firebaseapp.com",
+//     "databaseURL": "https://proxy-detection-1df22.firebaseio.com",
+//     "projectId": "proxy-detection-1df22",
+//     "storageBucket": "proxy-detection-1df22.appspot.com",
+//     "messagingSenderId": "17187188207",
+//     "appId": "1:17187188207:web:63e8c1f5b50862b1c59a1a",
+//     "vmeasurementId": "G-EPTQX1DS4L"
+// }
+// firebase.initializeApp(config);
 
 const preObject=document.getElementById('object');
 var table=document.getElementById('student-table')
@@ -28,12 +28,13 @@ function retrieve(){
     console.log('test')
     var IClass=document.getElementById('year').value;
     var IDiv=document.getElementById('div').value;
-    for (let index = 0; index < 5; index++) {
-        headings.push(document.getElementById('subject'+String(index+1)));
+    // for (let index = 0; index < 5; index++) {
+    //     headings.push(document.getElementById('subject'+String(index+1)));
         
-    }
-    console.log(IClass);
-    console.log(IDiv);
+    // }
+    
+    console.log('Class'+IClass);
+    console.log('Division'+IDiv);
 
     const dbRefObject=firebase.database().ref().child(IClass);
     
@@ -46,18 +47,24 @@ function retrieve(){
     
         var subjects=Object.keys(data[IDiv][students[0]])
         console.log(subjects);
-        for (let index = 0; index < headings.length; index++) {
-            headings[index].innerText=subjects[index];
+        
+        table.innerHTML=''
+        content=''
+        console.log(table.innerHTML)
+        content+='<thead>'
+        content+='<th>Roll No.</th>'
+        for (let i = 0; i < subjects.length; i++) {
+            content+='<th>'+subjects[i]+'</th>'
+            
         }
+        content+='</thead>'
         
         for (let index = 0; index < students.length; index++) {
             content +='<tr>';
             content += '<td>' + students[index]+ '</td>';
-            content += '<td>' + data[IDiv][students[index]][subjects[0]]+ '</td>';
-            content += '<td>' + data[IDiv][students[index]][subjects[1]] + '</td>';
-            content += '<td>' + data[IDiv][students[index]][subjects[2]] + '</td>';
-            content += '<td>' + data[IDiv][students[index]][subjects[3]] + '</td>';
-            content += '<td>' + data[IDiv][students[index]][subjects[4]]+ '</td>';
+            for (let i = 0; i < subjects.length; i++) {
+                content += '<td>' + data[IDiv][students[index]][subjects[i]]+ '</td>';
+            }
             content += '</tr>';
             
         }
