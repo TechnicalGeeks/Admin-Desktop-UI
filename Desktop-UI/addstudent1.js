@@ -23,14 +23,31 @@ app.post('/example',function(req,res){
     execute(`python FaceDetection2.py  ${name}`,(output)=>{
             console.log(output);
             res.send(output);
-            res.redirect(__dirname+"try1.html")
-            output1=output;
+            // output1=output;
     });
 });
 
-app.get('/example1',function(req,res){
-    res.render(__dirname+"/try2.html",{output:output1});
+app.post('/trainer',function(req,res){
+    console.log("##Trainer",req.body);
+    execute(`python trainer.py  `,(output)=>{
+        console.log(output);
+        res.send(output);
 });
+})
+
+app.post('/createLecture',function(req,res){
+    console.log("##Create Lecture",req.body);
+    var subject=req.body.status;
+    var year_div=req.body.year;
+//     execute(`python recognizer.py  ${subject} ${year}`,(output)=>{
+//         console.log(output);
+//         res.send(output);
+// });
+})
+
+// app.get('/example1',function(req,res){
+//     res.render(__dirname+"/try2.html",{output:output1});
+// });
 
 const port=8081;
 

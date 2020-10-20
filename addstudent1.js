@@ -53,6 +53,17 @@ app.post('/signUp',function(req,res){
 // });
 });
 
+app.post('/createLecture',function(req,res){
+    console.log("##Create Lecture",req.body);
+    var subject=req.body.status;
+    var year_div=req.body.year;
+    execute(`python recognizer.py  ${subject} ${year}`,(output)=>{
+        console.log(output);
+        res.send(output);
+});
+})
+
+
 
 app.get('/example1',function(req,res){
     res.render(__dirname+"/try2.html",{output:output1});
