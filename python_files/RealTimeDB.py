@@ -94,21 +94,19 @@ def updateAttendance(year,div,sub):
         year=year.upper()
         div=div.upper()
         sub=sub.upper()
-
+        print("--------  Updating LEcture Count T0 Firebase ------ ")
         total_lec =updateLectureCount(year=year,div=div,sub=sub)
         if int(total_lec)!=0:
             pre_lec = int(total_lec)-1
         else:
             pre_lec=0    
-        gen_att  = open('generated.csv','r')
+        gen_att  = open('../temporary.csv','r')
         csvreader= csv.reader(gen_att)
-        next(csvreader, None)
         for roll in csvreader:
-            print(roll[2],roll[4])
-            temp=db.child(str(year)).child(str(div)).child(str(roll[2])).get()
-            # print("Befor update ",temp.val()[str(sub)])
+            print(roll[0],roll[2])
+            temp=db.child(str(year)).child(str(div)).child(str(roll[0])).get()
 
-            if roll[4] == 'p':
+            if roll[2] == 'P' :
                 # get Current count+1
                 print("Attendance Before :- ",temp.val()[str(sub)])
                 print("Present hai : -")
@@ -123,7 +121,7 @@ def updateAttendance(year,div,sub):
 
 
                 # demo=str(int(temp.val()[str(sub)])+100)
-                db.child(str(year)).child(str(div)).child(str(roll[2])).update({str(sub):str(upd_attendance)})
+                db.child(str(year)).child(str(div)).child(str(roll[0])).update({str(sub):str(upd_attendance)})
                 # print("After update",demo)
             else:
                 # Attendance update nahi ki hai abhi tak
@@ -134,15 +132,15 @@ def updateAttendance(year,div,sub):
                 upd_attendance=round(upd_attendance)
                 print("Attendance After : ",upd_attendance)
 
-                db.child(str(year)).child(str(div)).child(str(roll[2])).update({str(sub):str(upd_attendance)})
+                db.child(str(year)).child(str(div)).child(str(roll[0])).update({str(sub):str(upd_attendance)})
 
                 pass
 
 
-AddNewDataset()
+# AddNewDataset()
 # inputs()
 # getAttendance('TE','B')
-# updateAttendance('SE','B','DM')    
+updateAttendance('TE','B','CN')    
 
 
 
