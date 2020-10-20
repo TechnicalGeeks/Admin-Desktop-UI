@@ -6,6 +6,7 @@ from datetime import datetime
 
 import pyrebase
 from getTotalLectureCount import *
+from RealTimeDB import *
 from get_yml import *
 from fractions import Fraction
 
@@ -25,7 +26,7 @@ db = firebase.database()
 
 
 x = datetime.now()
-file_name=str(x.strftime("%d-%m-AttendanceReport.csv"))
+file_name=str(x.strftime("temporary.csv"))
 def getAttendance(year,div): 
     # Generate Attendance in CSV format
     f = open(file_name,'w' ,newline='')
@@ -213,3 +214,6 @@ print("\n [INFO] Exiting Program and cleanup stuff")
 cam.release()
 cap.release()
 cv2.destroyAllWindows()
+
+# Pass correct parameters to update attendances
+# updateAttendance(year='TE',div='A',sub='CN')
