@@ -1,3 +1,5 @@
 Start /B  electron main.js
 
-start node addstudent1.js
+cd python_files
+
+node addstudent1.js

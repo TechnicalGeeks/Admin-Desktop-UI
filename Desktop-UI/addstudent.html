@@ -37,36 +37,37 @@
         <a href="#">Contact Us</a>
     </nav>
     <main>
-        
+
         <div class="container">
-            <form id="form" class="form" action="http://localhost:8081/addStudent" method="POST">
+            <form id="form" class="form">
                 <h2>Add Students</h2>
                 <div class="form-control">
                     <label for="name">Name : </label>
-                    <input type="text" id="name" name="name" placeholder="Enter Name">
+                    <input type="text" id="studentName" name="name" value="test" placeholder="Enter Name">
                 </div>
                 <br><br>
                 <div class="form-control">
                     <label for="clas">Class : </label>
-                    <input type="text" id="clas" name="clas" placeholder="Enter Class">
+                    <input type="text" id="clas" name="clas" value="TE" placeholder="Enter Class">
                 </div>
                 <br><br>
                 <div class="form-control">
                     <label for="div">Division : </label>
-                    <input type="text" id="div" name="div" placeholder="Enter Division">
+                    <input type="text" id="div" name="div" value="A" placeholder="Enter Division">
                 </div>
                 <br><br>
                 <div class="form-control">
                     <label for="roll">Roll : </label>
-                    <input type="text" id="roll" name="roll" placeholder="Enter Name">
+                    <input type="text" id="roll" name="roll" value="1" placeholder="Enter Name">
                 </div>
                 <br><br>
-                <button type="button" onclick="test()">Add</button>
+                <button onclick="test()">Add</button>
+                <!-- <button type="submit">Add</button> -->
             </form>
 
-            
+
         </div>
-		 <p id="output"> <%= output %> </p>
+        <p id="output"> <%= output %> </p>
 
     </main>
     <footer class="footer">
@@ -100,31 +101,52 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // function test() {
-        //     var name = document.getElementById('Tname').value;
-        //     console.log('##test', name);
-        //     data={'name':name};
-        //     console.log(data);
-        //     var sendString= JSON.stringify(data);
-        //     alert(sendString);
+        function test() {
+            var studentName = document.getElementById('studentName').value;
+            var className = document.getElementById('clas').value;
+            var div = document.getElementById('div').value;
+            var rollNo = document.getElementById('roll').value;
+
+            // var formData= document.getElementById('form')
+            // console.log(formData);
+            var myData = {
+                'studentName': studentName,
+                'className': className,
+                'div': div,
+                'rollNo': rollNo,
+            }
+            alert(JSON.stringify(myData) )
+            // Turn the data object into an array of URL-encoded key/value pairs.
+            let urlEncodedData = "", urlEncodedDataPairs = [], name;
+            // for (name in myData) {
+            //     urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(myData[name]));
+            // }
+            urlEncodedDataPairs=encodeURIComponent(JSON.stringify(myData))
+
+            alert(urlEncodedDataPairs)
+
+            // console.log(data);
+            // var sendString = JSON.stringify(data);
+            // alert(sendString);
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "http://localhost:8081/example1", true);
-            xhttp.send()
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log("<%= output %>")
-                    console.log('test data', this.responseText);
-                    outputText=document.getElementById('output');
-                    outputText.innerText+=this.responseText;
+                    // console.log('test data', this.responseText);
+                    // outputText = document.getElementById('output');
+                    // outputText.innerText += this.responseText;
                 }
-            // };
-            // xhttp.send(data);
+            };
+            xhttp.open("POST", "http://localhost:8081/addStudent", true);
+            // xhttp.send()
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(urlEncodedDataPairs);
             // xhttp.open("POST", "http://localhost:8081/example", true);
             // xhttp.send(data);
         }
 
     </script>
-    
+
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
@@ -135,7 +157,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
 
-    <script src="javascript/template.js"></script>
+    <!-- <script src="javascript/template.js"></script> -->
 </body>
 
 </html>

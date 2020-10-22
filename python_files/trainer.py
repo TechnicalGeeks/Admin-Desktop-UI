@@ -9,7 +9,7 @@ from get_yml import *
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-path1 = 'Dataset'
+path1 = '../Dataset'
 for classes in os.listdir(path1):
     path2=os.path.join(path1,classes)
     for division in os.listdir(path2):
@@ -21,6 +21,7 @@ for classes in os.listdir(path1):
                 for image in os.listdir(os.path.join(path,id)):
                     PIL_img = Image.open(os.path.join(os.path.join(path,id),image))
                     img_numpy = np.array(PIL_img,'uint8')
+                    print(img_numpy)
                     faces = detector.detectMultiScale(img_numpy)
                     for (x,y,w,h) in faces:               
                         faceslist.append(img_numpy[y:y+h,x:x+w])
