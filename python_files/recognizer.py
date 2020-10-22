@@ -45,6 +45,8 @@ def getAttendance(year,div):
         writer.writerow(row)
         print("*****************")   
     f.close()
+
+    # parameters year and division sys.args[0] 
 getAttendance('TE','B')
 
 
@@ -61,7 +63,7 @@ for id in os.listdir(path):
 
 print(names)    
 cam = cv2.VideoCapture(0)
-cap = cv2.VideoCapture("https://192.168.0.100:8080/video")
+cap = cv2.VideoCapture("https://192.168.0.101:8080/video")
 
 cam.set(3, 640) 
 cam.set(4, 480) 

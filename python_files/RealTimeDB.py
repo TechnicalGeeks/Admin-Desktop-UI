@@ -140,7 +140,7 @@ def updateAttendance(year,div,sub):
 # AddNewDataset()
 # inputs()
 # getAttendance('TE','B')
-updateAttendance('TE','B','CN')    
+# updateAttendance('TE','B','CN')    
 
 
 
