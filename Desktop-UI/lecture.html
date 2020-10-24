@@ -19,25 +19,25 @@
         function dynamicdropdown(listindex) {
             switch (listindex) {
                 case "SE":
-                    document.getElementById("status").options[0] = new Option("DM", "1");
-                    document.getElementById("status").options[1] = new Option("DSA", "2");
-                    document.getElementById("status").options[2] = new Option("OOP", "3");
-                    document.getElementById("status").options[3] = new Option("COA", "3");
-                    document.getElementById("status").options[4] = new Option("DELD", "4");
+                    document.getElementById("subject").options[0] = new Option("DM", "DM");
+                    document.getElementById("subject").options[1] = new Option("DSA", "DSA");
+                    document.getElementById("subject").options[2] = new Option("OOP", "OOP");
+                    document.getElementById("subject").options[3] = new Option("COA", "COA");
+                    document.getElementById("subject").options[4] = new Option("DELD", "DELD");
                     break;
                 case "TE":
-                    document.getElementById("status").options[0] = new Option("ISEE", "E");
-                    document.getElementById("status").options[1] = new Option("DBMS", "F");
-                    document.getElementById("status").options[2] = new Option("SDL", "G");
-                    document.getElementById("status").options[3] = new Option("ToC", "3");
-                    document.getElementById("status").options[4] = new Option("CN", "4");
+                    document.getElementById("subject").options[0] = new Option("ISEE", "ISEE");
+                    document.getElementById("subject").options[1] = new Option("DBMS", "DBMS");
+                    document.getElementById("subject").options[2] = new Option("SDL", "SDL");
+                    document.getElementById("subject").options[3] = new Option("ToC", "TOC");
+                    document.getElementById("subject").options[4] = new Option("CN", "CN");
                     break;
                 case "BE":
-                    document.getElementById("status").options[0] = new Option("OS", "A");
-                    document.getElementById("status").options[1] = new Option("NOS", "B");
-                    document.getElementById("status").options[2] = new Option("SUb1", "C");
-                    document.getElementById("status").options[3] = new Option("WEB", "3");
-                    document.getElementById("status").options[4] = new Option("Project", "4");
+                    document.getElementById("subject").options[0] = new Option("OS", "OS");
+                    document.getElementById("subject").options[1] = new Option("NOS", "NOS");
+                    document.getElementById("subject").options[2] = new Option("SUb1", "sub1");
+                    document.getElementById("subject").options[3] = new Option("WEB", "WEB");
+                    document.getElementById("subject").options[4] = new Option("Project", "Project");
                     break;
             }
             return true;
@@ -48,7 +48,7 @@
 
 <body>
     <header>
-        <a href="Admin.html" class="Institution_logo">
+        <a href="#" id="goBack" class="Institution_logo">
             <img src="images/logo.jpg" alt="PCCoE" class="logo">
         </a>
         <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
@@ -66,16 +66,12 @@
     <main>
 
         <div class="container">
-            <form method="POST" action="http://localhost:8081/createLecture" id="form" class="form">
+            <form id="form" class="form">
                 <h2>Create Lecture</h2>
-                <div class="form-control">
-                    <label for="lname">Lecturer's Name</label>
-                    <input type="text" id="lname" placeholder="Enter Name">
-                </div>
                 <!-- kk -->
-                <div class="category_div form-control" id="category_div">
+                <div class="form-control">
                     <label for="year">Year</label>
-                    <select id="source year-division" name="year" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                    <select id="year" name="year" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
 			        	<option value="">Select Year</option>
 			        	<option value="SE" >SE</option>
                         <option value="TE" >TE</option>
@@ -84,9 +80,9 @@
                 </div>
 
 
-                <div class="category_div form-control" id="category_div">
-                    <label for="division">Division</label>
-                    <select id="source year-division" name="division">
+                <div class="form-control">
+                    <label for="div">Division</label>
+                    <select id="div" name="div">
 			        	<option value="">Select Division</option>
 			        	<option value="A" >A</option>
                         <option value="B" >B</option>
@@ -96,10 +92,10 @@
 
 
 
-                <div class="sub_category_div form-control" id="sub_category_div">
-                    <label for="year-division">Subject</label>
+                <div class="form-control">
+                    <label for="subject">Subject</label>
                     <script type="text/javascript" language="JavaScript">
-                        document.write('<select name="status" id="status"><option value="">Select Subject</option></select>')
+                        document.write('<select name="subject" id="subject"><option value="">Select Subject</option></select>')
                     </script>
                 </div>
 
@@ -111,11 +107,7 @@
                     <label for="time">Time</label>
                     <input type="time" id="time" placeholder="7:00AM">
                 </div>
-                <div class="form-control">
-                    <label for="alist">Attendance List</label>
-                    <input type="text" id="alist" placeholder="Name">
-                </div>
-                <button type="submit">Create</button>
+                <button onclick="test()">Create</button>
             </form>
         </div>
     </main>
@@ -138,6 +130,48 @@
         </div>
     </footer>
 
+    <script>
+        function test() {
+            var year=document.getElementById('year').value;
+            var div=document.getElementById('div').value;
+            var subject=document.getElementById('subject').value;
+            alert(year+div+subject);
+            // var formData= document.getElementById('form')
+            // console.log(formData);
+            var myData = {
+                'year': year,
+                'div': div,
+                'subject': subject,
+            }
+            alert(JSON.stringify(myData) )
+            // Turn the data object into an array of URL-encoded key/value pairs.
+            let urlEncodedData = "", urlEncodedDataPairs = [], name;
+            // for (name in myData) {
+            //     urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(myData[name]));
+            // }
+            urlEncodedDataPairs=encodeURIComponent(JSON.stringify(myData))
+
+            // alert(urlEncodedDataPairs)
+
+            // console.log(data);
+            // var sendString = JSON.stringify(data);
+            // alert(sendString);
+            var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function () {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         // console.log("<%= output %>")
+            //         // console.log('test data', this.responseText);
+            //         // outputText = document.getElementById('output');
+            //         // outputText.innerText += this.responseText;
+            //     }
+            // };
+            xhttp.open("POST", "http://localhost:8081/createLecture", true);
+            // xhttp.send()
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(urlEncodedDataPairs);
+        }
+    </script>
+
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
@@ -148,7 +182,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
 
-    <!-- <script src="javascript/template.js"></script>  -->
+    <script src="javascript/template.js"></script> 
 
 
 </body>

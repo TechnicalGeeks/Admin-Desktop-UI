@@ -3,6 +3,7 @@ import csv
 import numpy as np
 import os 
 from datetime import datetime
+import sys
 
 import pyrebase
 from getTotalLectureCount import *
@@ -31,7 +32,7 @@ def getAttendance(year,div):
     # Generate Attendance in CSV format
     f = open(file_name,'w' ,newline='')
     writer = csv.writer(f)
-    print(subjects[str(year)].keys())
+    # print(subjects[str(year)].keys())
     roll_list = db.child(str(year)).child(str(div)).get()
     for rollno in roll_list.each():
         row =[ ]
@@ -47,7 +48,7 @@ def getAttendance(year,div):
     f.close()
 
     # parameters year and division sys.args[0] 
-getAttendance('TE','B')
+getAttendance(sys.argv[2],sys.argv[3])
 
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -63,7 +64,7 @@ for id in os.listdir(path):
 
 print(names)    
 cam = cv2.VideoCapture(0)
-cap = cv2.VideoCapture("https://192.168.0.101:8080/video")
+cap = cv2.VideoCapture("https://192.168.43.1:8080/video")
 
 cam.set(3, 640) 
 cam.set(4, 480) 
@@ -116,26 +117,31 @@ def demarkAttendance(id,name):
         
 while True:
 
-    ret, img =cam.read()
-    dret,dimg= cap.read()
+    # ret, img =cam.read()
+    # dret,dimg= cap.read()
+    _ , img =cam.read()
+    _ ,dimg= cap.read()
     
     
 
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     dgray = cv2.cvtColor(dimg,cv2.COLOR_BGR2GRAY)
     
-    faces = faceCascade.detectMultiScale( 
-        gray,
-        scaleFactor = 1.2,
-        minNeighbors = 5,
-        minSize = (int(minW), int(minH)),
-    )
-    dfaces = faceCascade.detectMultiScale( 
-        dgray,
-        scaleFactor = 1.2,
-        minNeighbors = 5,
-        minSize = (int(dminW), int(dminH)),
-    )
+    # faces = faceCascade.detectMultiScale( 
+    #     gray,
+    #     scaleFactor = 1.2,
+    #     minNeighbors = 5,
+    #     minSize = (int(minW), int(minH)),
+    # )
+    # dfaces = faceCascade.detectMultiScale( 
+    #     dgray,
+    #     scaleFactor = 1.2,
+    #     minNeighbors = 5,
+    #     minSize = (int(dminW), int(dminH)),
+    # )
+    faces = faceCascade.detectMultiScale(gray, 1.1, 4)
+    dfaces = faceCascade.detectMultiScale(dgray, 1.1, 4)
+
 
     for(x,y,w,h) in faces:
         cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
@@ -218,4 +224,4 @@ cap.release()
 cv2.destroyAllWindows()
 
 # Pass correct parameters to update attendances
-# updateAttendance(year='TE',div='A',sub='CN')
+# updateAttendance(year=sys.argv[2],div=sys.argv[3],sub=sys.argv[1])

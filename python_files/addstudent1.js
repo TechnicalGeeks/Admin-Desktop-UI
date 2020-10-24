@@ -34,21 +34,24 @@ app.post('/addStudent',function(req,res){
     execute(`python FaceDetection2.py  ${name} ${clas} ${div} ${roll}`,(output)=>{
             console.log(output);
             res.send(output);
-            // res.redirect(__dirname+"try1.html")
-            output1=output;
     });
 });
 
 app.post('/signUp',function(req,res){
-    console.log("test",req.body,req.params,req.query);
-    name=req.body.Tname;
-    fid=req.body.fid;
-    email=req.body.email;
-    if (req.body.npassword==req.body.cpassword){
+    console.log("## Sign Up",req.body,req.params,req.query);
+    console.log(req.body.studentName);
+    var signUpData={}
+    for(name in req.body){
+        signUpData=JSON.parse(name);
+    }
+    name=signUpData.facultyName;
+    fid=signUpData.ID;
+    email=signUpData.email;
+    console.log(name+" "+fid+" "+email);
+    if (signUpData.npassword==signUpData.cpassword){
         execute(`python signUp.py  ${email} ${fid} ${name} ${req.body.npassword}`,(output)=>{
                     console.log(output);
                     res.send(output);
-                    output1=output;
             });
     }
     else{
@@ -63,11 +66,17 @@ app.post('/signUp',function(req,res){
 
 app.post('/createLecture',function(req,res){
     console.log("##Create Lecture",req.body);
-    var subject=req.body.status;
-    var year_div=req.body.year;
-    execute(`python recognizer.py  ${subject} ${year_div}`,(output)=>{
+    var lectureData={}
+    for(name in req.body){
+        lectureData=JSON.parse(name);
+    }
+    var subject=lectureData.subject;
+    var year=lectureData.year;
+    var div=lectureData.div
+    console.log(subject+year+div);
+    execute(`python recognizer.py  ${subject} ${year} ${div}`,(output)=>{
         console.log(output);
-        res.send(output+'<a href="index.html">GO BACK</a>');
+        res.send(output);
 });
 })
 

@@ -25,6 +25,13 @@ var config ={
               // ...
               console.log(localStorage.getItem('displayName'));
               Username.innerHTML=localStorage.getItem('displayName');
+              var anchor=document.getElementById('goBack')
+              if(localStorage.getItem('displayName')=='Admin'){
+                  anchor.href='Admin.html'
+              }
+              else{
+                  anchor.href='Faculty.html'
+              }
             } else {
               // User is signed out.
               // ...

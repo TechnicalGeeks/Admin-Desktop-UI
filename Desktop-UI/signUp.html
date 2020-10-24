@@ -18,7 +18,7 @@
 
 <body>
     <header>
-        <a href="Admin.html" class="Institution_logo">
+        <a href="#" id="goBack" class="Institution_logo">
             <img src="images/logo.jpg" alt="PCCoE" class="logo">
         </a>
         <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
@@ -36,15 +36,15 @@
     <main>
         
         <div class="container">
-            <form method="POST" action="http://localhost:8081/signUp" id="form" class="form">
+            <form id="form" class="form">
                 <h2>Create Lecture</h2>
                 <div class="form-control">
-                    <label for="Tname">Display Name : </label>
-                    <input type="text" id="Tname" name="Tname" placeholder="Enter Name">
+                    <label for="facultyName">Display Name : </label>
+                    <input type="text" id="facultyName" name="facultyName" placeholder="Enter Name">
                 </div>
                 <div class="form-control">
-                    <label for="fid">Faculty ID</label>
-                    <input type="text" id="fid" name="fid" placeholder="Enter Faculty">
+                    <label for="ID">Faculty ID</label>
+                    <input type="text" id="ID" name="ID" placeholder="Enter Faculty">
                 </div><div class="form-control">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="abc@pccoe.org">
@@ -56,7 +56,7 @@
                     <label for="cpassword">Confirm Password</label>
                     <input type="password" id="cpassword" name="cpassword" placeholder="Confirm password">
                 </div>
-                <button type="submit" >Create</button>
+                <button onclick="test()">Create</button>
             </form>
         </div>
     </main>
@@ -90,31 +90,50 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 	
-    <script>
-        // function test() {
-        //     var name = document.getElementById('Tname').value;
-        //     console.log('##test', name);
-        //     data={'name':name};
-        //     console.log(data);
-        //     var sendString= JSON.stringify(data);
-        //     alert(sendString);
-            // var xhttp = new XMLHttpRequest();
-            // xhttp.open("POST", "http://localhost:8081/example1", true);
-            // xhttp.send()
-            // xhttp.onreadystatechange = function () {
-            //     if (this.readyState == 4 && this.status == 200) {
-            //         console.log("<%= output %>")
-            //         console.log('test data', this.responseText);
-            //         outputText=document.getElementById('output');
-            //         outputText.innerText+=this.responseText;
-            //     }
-            // };
-            // xhttp.send(data);
-            // xhttp.open("POST", "http://localhost:8081/example", true);
-            // xhttp.send(data);
-        // }
-
-    </script>
+        <script>
+            function test() {
+                var facultyName=document.getElementById('facultyName').value;
+                var ID=document.getElementById('ID').value;
+                var email=document.getElementById('email').value;
+                var npassword=document.getElementById('npassword').value;
+                var cpassword=document.getElementById('cpassword').value;
+                // var formData= document.getElementById('form')
+                // console.log(formData);
+                var myData = {
+                    'facultyName': facultyName,
+                    'ID': ID,
+                    'email': email,
+                    'npassword': npassword,
+                    'cpassword': cpassword,
+                }
+                alert(JSON.stringify(myData) )
+                // Turn the data object into an array of URL-encoded key/value pairs.
+                let urlEncodedData = "", urlEncodedDataPairs = [], name;
+                // for (name in myData) {
+                //     urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(myData[name]));
+                // }
+                urlEncodedDataPairs=encodeURIComponent(JSON.stringify(myData))
+    
+                // alert(urlEncodedDataPairs)
+    
+                // console.log(data);
+                // var sendString = JSON.stringify(data);
+                // alert(sendString);
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // console.log("<%= output %>")
+                        // console.log('test data', this.responseText);
+                        // outputText = document.getElementById('output');
+                        // outputText.innerText += this.responseText;
+                    }
+                };
+                xhttp.open("POST", "http://localhost:8081/signUp", true);
+                // xhttp.send()
+                xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhttp.send(urlEncodedDataPairs);
+            }
+        </script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
@@ -125,7 +144,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
 
-    <!-- <script src="javascript/template.js"></script> -->
+    <script src="javascript/template.js"></script>
 </body>
 
 </html>
