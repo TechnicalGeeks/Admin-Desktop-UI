@@ -67,7 +67,7 @@
 
 
         </div>
-        <p id="output"> <%= output %> </p>
+        <p id="output"></p>
 
     </main>
     <footer class="footer">
@@ -131,7 +131,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log("<%= output %>")
+                    // console.log("<%= output %>")
                     // console.log('test data', this.responseText);
                     // outputText = document.getElementById('output');
                     // outputText.innerText += this.responseText;
@@ -141,10 +141,7 @@
             // xhttp.send()
             xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhttp.send(urlEncodedDataPairs);
-            // xhttp.open("POST", "http://localhost:8081/example", true);
-            // xhttp.send(data);
         }
-
     </script>
 
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
@@ -157,7 +154,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
 
-    <!-- <script src="javascript/template.js"></script> -->
+    <script src="javascript/template.js"></script>
 </body>
 
 </html>

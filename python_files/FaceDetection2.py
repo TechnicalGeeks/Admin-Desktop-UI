@@ -9,17 +9,26 @@ eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
 def FaceDetect(mode):
     if mode=="dataset":
-        id=str(len(os.listdir('Dataset'))+1)
+        # id=str(len(os.listdir('Dataset'))+1)
         # name=input("Enter Name : ")
+        id=0
         name=sys.argv[1]
-        row=[name,id]
-        try:
-            os.mkdir("Dataset\\"+id+'.'+name)
-        except:
-            print("File already exist")
-        with open("StudentList.csv",'a') as fa:
+        classNo=sys.argv[2]
+        div=sys.argv[3]
+        rollNo=sys.argv[4]
+        os.makedirs("..\Dataset\\"+classNo+"\\"+div+"\\"+str(id)+'.'+name)
+        # try:
+        #     os.mkdir("..\Dataset\\"+classNo+"\\"+div+"\\"+str(id)+'.'+name)
+        # except:
+        #     print("File already exist")
+        with open("StudentList.csv",'r+') as fa:
+            reader=csv.reader(fa)
+            for _ in reader:
+                id+=1
+            row=[name,str(id),classNo,div,rollNo]
             writer=csv.writer(fa,lineterminator="\n")
             writer.writerow(row)
+        os.mkdir("..\Dataset\\"+classNo+"\\"+div+"\\"+str(id)+'.'+name)
     if mode=="recognize":
         try:
             os.mkdir("RecognizeFaces")
@@ -50,7 +59,7 @@ def FaceDetect(mode):
             if len(eyes)!=0:
                 print(str(i+1)+".[INFO] Object found.")
                 if mode=='dataset': 
-                    cv2.imwrite("Dataset\\"+id+"."+name+"\\"+str(id)+"."+str(i)+".jpg",roi_gray)
+                    cv2.imwrite("..\Dataset\\"+classNo+"\\"+div+"\\"+str(id)+'.'+name+"\\"+str(id)+"."+str(i)+".jpg",roi_gray)
                 elif mode=='recognize':
                     j=str(len(os.listdir("RecognizeFaces"))+1)
                     cv2.imwrite("RecognizeFaces\\"+j+".jpg",roi_gray)
