@@ -100,7 +100,7 @@ def updateAttendance(year,div,sub):
             pre_lec = int(total_lec)-1
         else:
             pre_lec=0    
-        gen_att  = open('../temporary.csv','r')
+        gen_att  = open('temporary.csv','r')
         csvreader= csv.reader(gen_att)
         for roll in csvreader:
             print(roll[0],roll[2])

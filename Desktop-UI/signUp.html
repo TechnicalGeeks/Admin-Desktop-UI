@@ -6,11 +6,11 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Technical Geeks">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Proxy | SignUp</title>
+    <title>Proxy | SignUp</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-	<!--CSS File Link-->
-		<link rel="stylesheet" href="css/addstudent.css">
-		<link rel="stylesheet" href="css/lecture.css">
+    <!--CSS File Link-->
+    <link rel="stylesheet" href="css/addstudent.css">
+    <link rel="stylesheet" href="css/lecture.css">
 
     <!-- Awesome Fonts Link to StyleSheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -28,16 +28,16 @@
         </details>
     </header>
     <nav>
-            <a href="#">Home</a>
-            <a href="#">Website1</a>
-            <a href="#">About</a>
-            <a href="#">Contact Us</a>
-        </nav>
+        <a href="#">Home</a>
+        <a href="#">Website1</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+    </nav>
     <main>
-        
+
         <div class="container">
             <form id="form" class="form">
-                <h2>Create Lecture</h2>
+                <h2>Sign-up</h2>
                 <div class="form-control">
                     <label for="facultyName">Display Name : </label>
                     <input type="text" id="facultyName" name="facultyName" placeholder="Enter Name">
@@ -45,10 +45,12 @@
                 <div class="form-control">
                     <label for="ID">Faculty ID</label>
                     <input type="text" id="ID" name="ID" placeholder="Enter Faculty">
-                </div><div class="form-control">
+                </div>
+                <div class="form-control">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="abc@pccoe.org">
-                </div><div class="form-control">
+                </div>
+                <div class="form-control">
                     <label for="npassword">New Password</label>
                     <input type="password" id="npassword" name="npassword" placeholder="Enter password">
                 </div>
@@ -77,63 +79,59 @@
                 <i class="far fa-envelope"></i>
             </a>
         </div>
-	</footer>
-    
+    </footer>
+
     <!-- <script src="javascript/addstudent.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-	
-        <script>
-            function test() {
-                var facultyName=document.getElementById('facultyName').value;
-                var ID=document.getElementById('ID').value;
-                var email=document.getElementById('email').value;
-                var npassword=document.getElementById('npassword').value;
-                var cpassword=document.getElementById('cpassword').value;
-                // var formData= document.getElementById('form')
-                // console.log(formData);
-                var myData = {
-                    'facultyName': facultyName,
-                    'ID': ID,
-                    'email': email,
-                    'npassword': npassword,
-                    'cpassword': cpassword,
-                }
-                alert(JSON.stringify(myData) )
-                // Turn the data object into an array of URL-encoded key/value pairs.
-                let urlEncodedData = "", urlEncodedDataPairs = [], name;
-                // for (name in myData) {
-                //     urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(myData[name]));
-                // }
-                urlEncodedDataPairs=encodeURIComponent(JSON.stringify(myData))
-    
-                // alert(urlEncodedDataPairs)
-    
-                // console.log(data);
-                // var sendString = JSON.stringify(data);
-                // alert(sendString);
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        // console.log("<%= output %>")
-                        // console.log('test data', this.responseText);
-                        // outputText = document.getElementById('output');
-                        // outputText.innerText += this.responseText;
-                    }
-                };
-                xhttp.open("POST", "http://localhost:8081/signUp", true);
-                // xhttp.send()
-                xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhttp.send(urlEncodedDataPairs);
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script>
+        function test() {
+            var facultyName = document.getElementById('facultyName').value;
+            var ID = document.getElementById('ID').value;
+            var email = document.getElementById('email').value;
+            var npassword = document.getElementById('npassword').value;
+            var cpassword = document.getElementById('cpassword').value;
+            // var formData= document.getElementById('form')
+            // console.log(formData);
+            var myData = {
+                'facultyName': facultyName,
+                'ID': ID,
+                'email': email,
+                'npassword': npassword,
+                'cpassword': cpassword,
             }
-        </script>
+            alert(JSON.stringify(myData))
+                // Turn the data object into an array of URL-encoded key/value pairs.
+            let urlEncodedData = "",
+                urlEncodedDataPairs = [],
+                name;
+            // for (name in myData) {
+            //     urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(myData[name]));
+            // }
+            urlEncodedDataPairs = encodeURIComponent(JSON.stringify(myData))
+
+            // alert(urlEncodedDataPairs)
+
+            // console.log(data);
+            // var sendString = JSON.stringify(data);
+            // alert(sendString);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // console.log("<%= output %>")
+                    // console.log('test data', this.responseText);
+                    // outputText = document.getElementById('output');
+                    // outputText.innerText += this.responseText;
+                }
+            };
+            xhttp.open("POST", "http://localhost:8081/signUp", true);
+            // xhttp.send()
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(urlEncodedDataPairs);
+        }
+    </script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
@@ -148,24 +146,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

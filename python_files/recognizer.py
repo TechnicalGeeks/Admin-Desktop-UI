@@ -64,7 +64,7 @@ for id in os.listdir(path):
 
 print(names)    
 cam = cv2.VideoCapture(0)
-cap = cv2.VideoCapture("https://192.168.43.1:8080/video")
+cap = cv2.VideoCapture("https://192.168.0.101:8080/video")
 
 cam.set(3, 640) 
 cam.set(4, 480) 
@@ -224,4 +224,4 @@ cap.release()
 cv2.destroyAllWindows()
 
 # Pass correct parameters to update attendances
-# updateAttendance(year=sys.argv[2],div=sys.argv[3],sub=sys.argv[1])
+updateAttendance(year=sys.argv[2],div=sys.argv[3],sub=sys.argv[1])
