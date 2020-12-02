@@ -106,7 +106,7 @@ def updateAttendance(year,div,sub):
             print(roll[0],roll[2])
             temp=db.child(str(year)).child(str(div)).child(str(roll[0])).get()
 
-            if roll[2] == 'P' :
+            if roll[2] == 'present' :
                 # get Current count+1
                 print("Attendance Before :- ",temp.val()[str(sub)])
                 print("Present hai : -")
